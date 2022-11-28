@@ -20,7 +20,7 @@
   - [Lighthouse Integrations in Web Perf services](#lighthouse-integrations-in-web-perf-services)
   - [Lighthouse Integrations in non-Web Perf services](#lighthouse-integrations-in-non-web-perf-services)
   - [Plugins](#plugins)
-  - [Related Projects](#related-projects)
+  - [Related projects](#related-projects)
 - [FAQ](#faq)
   * [How does Lighthouse work?](#how-does-lighthouse-work)
   * [Can I configure the lighthouse run?](#can-i-configure-the-lighthouse-run)
@@ -312,12 +312,13 @@ yarn type-check
 
 ### Docs
 
-Some of our docs have tests that run only in CI by default. If you end up needing to modify our documentation, you'll need to run `yarn build-pack && yarn test-docs` locally to make sure they pass.
+Some of our docs have tests that run only in CI by default. To modify our documentation, you'll need to run `yarn build-pack && yarn test-docs` locally to make sure they pass.
 
 **Additional Dependencies**
 - `brew install jq`
 
 ## Lighthouse Integrations in Web Perf services
+
 This section details services that have integrated Lighthouse data. If you're working on a cool project integrating Lighthouse and would like to be featured here, file an issue to this repo or tweet at us [@_____lighthouse](https://twitter.com/____lighthouse)!
 
 * **[Web Page Test](https://www.webpagetest.org)** — An [open source](https://github.com/WPO-Foundation/webpagetest) tool for measuring and analyzing the performance of web pages on real devices. Users can choose to produce a Lighthouse report alongside the analysis of WebPageTest results.
@@ -380,7 +381,8 @@ This section details services that have integrated Lighthouse data. If you're wo
 
 * **[lighthouse-plugin-crux](https://github.com/dvelasquez/lighthouse-plugin-crux)** - a plugin that quickly gathers real-user-metrics data from the [Chrome UX Report API](https://developers.google.com/web/tools/chrome-user-experience-report/api/reference).
 
-## Related Projects
+## Related projects
+
 Other awesome open source projects that use Lighthouse.
 
 * **[auto-lighthouse](https://github.com/TGiles/auto-lighthouse)** - a CLI for crawling a domain and generating mobile and desktop reports for each page.
