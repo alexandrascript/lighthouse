@@ -1,54 +1,50 @@
 # Lighthouse  [![GitHub Actions Status Badge](https://github.com/GoogleChrome/lighthouse/workflows/CI/badge.svg)](https://github.com/GoogleChrome/lighthouse/actions/workflows/ci.yml) [![GitHub Actions Status Badge](https://github.com/GoogleChrome/lighthouse/workflows/unit/badge.svg)](https://github.com/GoogleChrome/lighthouse/actions/workflows/unit.yml) [![GitHub Actions Status Badge](https://github.com/GoogleChrome/lighthouse/workflows/smoke/badge.svg)](https://github.com/GoogleChrome/lighthouse/actions/workflows/smoke.yml) [![Coverage Status](https://codecov.io/gh/GoogleChrome/lighthouse/branch/main/graph/badge.svg)](https://codecov.io/gh/GoogleChrome/lighthouse) [![Build tracker for Lighthouse](https://img.shields.io/badge/buildtracker-ok-blue)](https://lh-build-tracker.herokuapp.com/) [![NPM lighthouse package](https://img.shields.io/npm/v/lighthouse.svg)](https://npmjs.org/package/lighthouse)
 
-> Lighthouse analyzes web apps and web pages, collecting modern performance metrics and insights on developer best practices.
+Lighthouse analyzes web apps and web pages, collecting modern performance metrics and insights on developer best practices.
 
-- Using Lighthouse
-  - [Using Lighthouse in Chrome DevTools](#using-lighthouse-in-chrome-devtools)
-  - [Using the Chrome extension](#using-the-chrome-extension)
-  - [Using the Node CLI](#using-the-node-cli)
-    * [CLI options](#cli-options)
-  - [Using the Node module](#using-the-node-module)
-  - [Viewing a report](#viewing-a-report)
-    * [Online Viewer](#online-viewer)
-  - [Docs & Recipes](#docs--recipes)
-  - [Developing Lighthouse](#develop)
-    * [Setup](#setup)
-    * [Run](#run)
-    * [Tests](#tests)
-    * [Docs](#docs)
-- Associated Products and Projects
-  - [Lighthouse Integrations in Web Perf services](#lighthouse-integrations-in-web-perf-services)
-  - [Lighthouse Integrations in non-Web Perf services](#lighthouse-integrations-in-non-web-perf-services)
+- Install and run Lighthouse
+  - [In Chrome DevTools](#using-lighthouse-in-chrome-devtools)
+  - [Chrome extension](#using-the-chrome-extension)
+  - [Run with the Node CLI](#using-the-node-cli)
+  - [Use the Node module](#using-the-node-module)
+- [Generate and view reports](#view-a-report)
+- [Documentation and recipes](#documentation-and-recipes)
+  - [Setup, run, and test Lighthouse](#develop)
+- Associated products and projects
+  - [Integrations in Web Perf services](#lighthouse-integrations-in-web-perf-services)
+  - [Integrations in non-Web Perf services](#lighthouse-integrations-in-non-web-perf-services)
   - [Plugins](#plugins)
   - [Related projects](#related-projects)
 - [FAQ](#faq)
   * [How does Lighthouse work?](#how-does-lighthouse-work)
-  * [Can I configure the lighthouse run?](#can-i-configure-the-lighthouse-run)
+  * [Can I configure the ighthouse run?](#can-i-configure-the-lighthouse-run)
   * [How does Lighthouse use network throttling, and how can I make it better?](#how-does-lighthouse-use-network-throttling-and-how-can-i-make-it-better)
   * [Are results sent to a remote server?](#are-results-sent-to-a-remote-server)
   * [How do I get localized Lighthouse results?](#how-do-i-get-localized-lighthouse-results-via-the-cli)
   * [How do I author custom audits to extend Lighthouse?](#how-do-i-author-custom-audits-to-extend-lighthouse)
   * [How do I contribute?](#how-do-i-contribute)
 
-## Using Lighthouse in Chrome DevTools
+## Use Lighthouse
+
+### In Chrome DevTools
 
 Lighthouse is integrated directly into the Chrome DevTools, under the "Lighthouse" panel.
 
 **Installation**: install [Chrome](https://www.google.com/chrome/browser).
 
-**Run it**: open Chrome DevTools, select the Lighthouse panel, and hit "Generate report".
+**Run it**: open Chrome DevTools, select the Lighthouse panel, and click **Generate report**.
 
 <img width="550" alt="Lighthouse integration in Chrome DevTools." src="https://user-images.githubusercontent.com/2766281/204185043-9c49abe5-baee-4b26-b5ce-ece410661213.png">
 
-## Using the Chrome extension
+### Chrome extension
 
-The Chrome extension was available prior to Lighthouse being available in Chrome Developer Tools, and offers similar functionality.
+The Chrome extension was built first and offers similar functionality to Chrome DevTools.
 
 **Installation**: [install the extension](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk) from the Chrome Web Store.
 
 **Run it**: follow the [extension quick-start guide](https://developers.google.com/web/tools/lighthouse/#extension).
 
-## Using the Node CLI
+### Run with the Node CLI
 
 The Node CLI provides the most flexibility in how Lighthouse runs can be configured and reported. Users who want more advanced usage, or want to run Lighthouse in an automated fashion should use the Node CLI.
 
@@ -66,7 +62,7 @@ npm install -g lighthouse
 
 By default, Lighthouse writes the report to an HTML file. You can control the output format by passing flags.
 
-### CLI options
+#### CLI options
 
 <!-- To update the help output:
   node cli --help | pbcopy
@@ -152,7 +148,7 @@ Examples:
 For more information on Lighthouse, see https://developers.google.com/web/tools/lighthouse/.
 ```
 
-##### Output Examples
+#### Output Examples
 
 ```sh
 lighthouse
@@ -179,7 +175,7 @@ lighthouse --output-path=./report.json --output json
 # saves `./report.json`
 ```
 
-##### Lifecycle Examples
+#### Lifecycle Examples
 You can run a subset of Lighthouse's lifecycle if desired via the `--gather-mode` (`-G`) and  `--audit-mode` (`-A`) CLI flags.
 
 ```sh
@@ -197,26 +193,25 @@ lighthouse http://example.com -GA
 lighthouse -GA=./gmailartifacts https://gmail.com
 ```
 
+#### Error reporting with the CLI
 
-#### Notes on Error Reporting
+The first time you run the CLI, you'll be prompted with a message that asks if Lighthouse can anonymously report runtime exceptions. The Lighthouse team uses this information to detect new bugs and avoid regressions. Opting out will not affect your ability to use Lighthouse in any way. [Read more about error reporting](https://github.com/GoogleChrome/lighthouse/blob/main/docs/error-reporting.md).
 
-The first time you run the CLI you will be prompted with a message asking you if Lighthouse can anonymously report runtime exceptions. The Lighthouse team uses this information to detect new bugs and avoid regressions. Opting out will not affect your ability to use Lighthouse in any way. [Learn more](https://github.com/GoogleChrome/lighthouse/blob/main/docs/error-reporting.md).
-
-## Using the Node module
+### Use the Node module
 You can also use Lighthouse programmatically with the Node module.
 
 Read [Using Lighthouse programmatically](./docs/readme.md#using-programmatically) for help getting started.\
 Read [Lighthouse Configuration](./docs/configuration.md) to learn more about the configuration options available.
 
-## Viewing a report
+## View reports
 
 Lighthouse can produce a report as JSON or HTML.
 
 HTML report:
 
-<img src="https://raw.githubusercontent.com/GoogleChrome/lighthouse/443ff2c8a297dfd2297dfaca86c4966a87c8574a/assets/example_audit.png" alt="Lighthouse example audit" width="500px">
+<img src="https://raw.githubusercontent.com/GoogleChrome/lighthouse/443ff2c8a297dfd2297dfaca86c4966a87c8574a/assets/example_audit.png" alt="Lighthouse example audit, produced in HTML." width="500px">
 
-### Online Viewer
+### Generate a report in the Online Viewer
 
 Running Lighthouse with the `--output=json` flag generates a JSON dump of the run.
 You can view this report online by visiting <https://googlechrome.github.io/lighthouse/viewer/>
@@ -229,7 +224,7 @@ right corner and signing in to GitHub.
 
 > **Note**: shared reports are stashed as a secret Gist in GitHub, under your account.
 
-## Docs & Recipes
+## Documentation and recipes
 
 Useful documentation, examples, and recipes to get you started.
 
@@ -264,7 +259,7 @@ _Click the image to watch the video on YouTube._
 
 ## Develop
 
-Read on for the basics of hacking on Lighthouse. Also, see [Contributing](./CONTRIBUTING.md)
+Read on for the basics of hacking on Lighthouse. Read the [contributing guidelines](./CONTRIBUTING.md)
 for detailed information.
 
 ### Setup
@@ -317,9 +312,13 @@ Some of our docs have tests that run only in CI by default. To modify our docume
 **Additional Dependencies**
 - `brew install jq`
 
-## Lighthouse Integrations in Web Perf services
+## Lighthouse integrations
 
-This section details services that have integrated Lighthouse data. If you're working on a cool project integrating Lighthouse and would like to be featured here, file an issue to this repo or tweet at us [@_____lighthouse](https://twitter.com/____lighthouse)!
+This section details services that have integrated Lighthouse data. If you're working on
+a cool project integrating Lighthouse and would like to be featured here, file an issue
+to this repo or tweet at us [@_____lighthouse](https://twitter.com/____lighthouse)!
+
+### Web Perf services
 
 * **[Web Page Test](https://www.webpagetest.org)** — An [open source](https://github.com/WPO-Foundation/webpagetest) tool for measuring and analyzing the performance of web pages on real devices. Users can choose to produce a Lighthouse report alongside the analysis of WebPageTest results.
 
@@ -357,7 +356,7 @@ This section details services that have integrated Lighthouse data. If you're wo
 
 * **[Auditzy](https://auditzy.com)** - Auditzy™ is a robust website auditing & monitoring tool which lets you analyze your web page(s) pre-user journey. Analyze the Competitor Health Metric, Core Web Vitals, and Technology. Compare your web pages with your competitors to understand where you are leading or lagging. Real-time notification with Slack. Have Seamless Collaboration with Multiple Teams. Automate your Audits hourly, daily, weekly, and so on. It has a free trial with pay as you go plans.
 
-## Lighthouse Integrations in non-Web Perf services
+### Non-Web Perf services
 
 * **[PageWatch](https://pagewatch.dev/)** — PageWatch is a tool to find problem pages on your website.  It provides insights into spelling errors, layout issues, slow pages (powered by Lighthouse) and more.  PageWatch is offered via free and paid plans.
 
@@ -375,7 +374,7 @@ This section details services that have integrated Lighthouse data. If you're wo
 
 ## Plugins
 
-* **[lighthouse-plugin-field-performance](https://github.com/treosh/lighthouse-plugin-field-performance)** - a plugin that adds real-user performance metrics for the URL using the data from [Chrome UX Report](https://developers.google.com/web/tools/chrome-user-experience-report/).
+* **[lighthouse-plugin-field-performance](https://github.com/treosh/lighthouse-plugin-field-performance)** - adds real-user performance metrics for a URL using the data from [Chrome UX Report](https://developers.google.com/web/tools/chrome-user-experience-report/).
 
 * **[lighthouse-plugin-publisher-ads](https://github.com/googleads/publisher-ads-lighthouse-plugin)** - a tool to improve ad speed and overall quality through a series of automated audits. At the moment, this is primarily targeted at sites using Google Ad Manager. This tool will aid in resolving discovered problems, providing a tool to be used to evaluate effectiveness of iterative changes while suggesting actionable feedback.
 
