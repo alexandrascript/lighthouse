@@ -17,7 +17,7 @@ Lighthouse analyzes web apps and web pages, collecting modern performance metric
   - [Related projects](#related-projects)
 - [FAQ](#faq)
   * [How does Lighthouse work?](#how-does-lighthouse-work)
-  * [Can I configure the ighthouse run?](#can-i-configure-the-lighthouse-run)
+  * [Can I configure the Lighthouse run?](#can-i-configure-the-lighthouse-run)
   * [How does Lighthouse use network throttling, and how can I make it better?](#how-does-lighthouse-use-network-throttling-and-how-can-i-make-it-better)
   * [Are results sent to a remote server?](#are-results-sent-to-a-remote-server)
   * [How do I get localized Lighthouse results?](#how-do-i-get-localized-lighthouse-results-via-the-cli)
